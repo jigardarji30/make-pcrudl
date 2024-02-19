@@ -109,7 +109,7 @@ class MakeCrud extends Command
             $path = resource_path($path);
         }
         if ($folder != null && !file_exists($folder)) {
-            File::makeDirectory($folder);
+            File::makeDirectory(strtolower($folder));
         }
         $fh = fopen($path, 'w') or die("can't open file");
         $stringData = $file;
