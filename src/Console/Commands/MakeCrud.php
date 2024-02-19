@@ -83,9 +83,9 @@ class MakeCrud extends Command
     public function viewGenerate($name)
     {
 
-        $pathIndex = $this->generateFile('views/'. $name . '/index.blade.php', $this->indexViewFile(),'resources',resource_path().'/views/'. strtolower($name));
-        $pathCreate = $this->generateFile('views/'. $name . '/create.blade.php', $this->createViewFile(),'resources',resource_path().'/views/'. strtolower($name));
-        $pathEdit = $this->generateFile('views/'. $name . '/edit.blade.php', $this->editViewFile(),'resources',resource_path().'/views/'. strtolower($name));
+        $pathIndex = $this->generateFile('views/'. strtolower($name) . '/index.blade.php', $this->indexViewFile(),'resources',resource_path().'/views/'. strtolower($name));
+        $pathCreate = $this->generateFile('views/'. strtolower($name) . '/create.blade.php', $this->createViewFile(),'resources',resource_path().'/views/'. strtolower($name));
+        $pathEdit = $this->generateFile('views/'. strtolower($name) . '/edit.blade.php', $this->editViewFile(),'resources',resource_path().'/views/'. strtolower($name));
         $this->replaceTextFileAgain($pathIndex, lcfirst($name));
         $this->replaceTextFile($pathIndex, $name);
 
@@ -95,9 +95,9 @@ class MakeCrud extends Command
         $this->replaceTextFileAgain($pathEdit, lcfirst($name));
         $this->replaceTextFile($pathEdit, $name);
 
-        $this->line("Created File: " . 'resources/views/'. $name . 'index.blade.php');
-        $this->line("Created File: " . 'resources/views/'. $name . 'create.blade.php');
-        $this->line("Created File: " . 'resources/views/'. $name . 'edit.blade.php');
+        $this->line("Created File: " . 'resources/views/'. strtolower($name) . '/index.blade.php');
+        $this->line("Created File: " . 'resources/views/'. strtolower($name) . '/create.blade.php');
+        $this->line("Created File: " . 'resources/views/'. strtolower($name) . '/edit.blade.php');
         return true;
     }
 
