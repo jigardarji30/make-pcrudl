@@ -1,0 +1,99 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\NameHere;
+
+class NameHereController extends Controller
+{
+    /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function index()
+    {
+        $smallNameHere = NameHere::all();
+        return view('smallNameHere.index', compact('smallNameHere'));
+    }
+
+    /**
+    * Show the form for creating a new smallNameHere.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function create()
+    {
+        return view('smallNameHere.create');
+    }
+
+    /**
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+    public function store(Request $request)
+    {
+        $request->validate([
+        'title' => 'required|max:255',
+        'body' => 'required',
+        ]);
+        NameHere::create($request->all());
+        return redirect()->route('smallNameHere.index')->with('success', 'NameHere created successfully.');
+    }
+
+    /**
+    * Show the form for editing the specified smallNameHere.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function edit($id)
+    {
+        $smallNameHere = NameHere::find($id);
+        return view('smallNameHere.edit', compact('smallNameHere'));
+    }
+
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+        'title' => 'required|max:255',
+        'body' => 'required',
+        ]);
+        $smallNameHere = NameHere::where('id',$id)->update($request->except('_token','_method'));
+        return redirect()->route('smallNameHere.index')->with('success', 'NameHere updated successfully.');
+    }
+
+    /**
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function show($id)
+    {
+        $smallNameHere = NameHere::find($id);
+        return view('smallNameHere.show', compact('smallNameHere'));
+    }
+
+    /**
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function destroy($id)
+    {
+        $smallNameHere = NameHere::where('id',$id)->delete();
+        return redirect()->route('smallNameHere.index')->with('success', 'NameHere deleted successfully');
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "jigardarji/lara-crud",
+    "description": "Laravel CRUD Operation Generator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jigardarji30",
+            "email": "jigardarji30@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Jigardarji\\LaraCrud\\": "src"
+        }
+    },
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jigardarji\\LaraCrud\\LaraCrudGeneratorServiceProvider"
+            ]
+        }
+    },
+    "repositories": [
+        {
+          "type": "vcs",
+          "url":  "git@github.com:jigardarji30/make-pcrudl.git"
+        }
+      ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
