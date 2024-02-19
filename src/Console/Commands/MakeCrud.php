@@ -83,9 +83,9 @@ class MakeCrud extends Command
     public function viewGenerate($name)
     {
 
-        $pathIndex = $this->generateFile('views/'. $name . '/index.blade.php', $this->indexViewFile(),'resources',resource_path().'/views/'. $name);
-        $pathCreate = $this->generateFile('views/'. $name . '/create.blade.php', $this->createViewFile(),'resources',resource_path().'/views/'. $name);
-        $pathEdit = $this->generateFile('views/'. $name . '/edit.blade.php', $this->editViewFile(),'resources',resource_path().'/views/'. $name);
+        $pathIndex = $this->generateFile('views/'. $name . '/index.blade.php', $this->indexViewFile(),'resources',resource_path().'/views/'. strtolower($name));
+        $pathCreate = $this->generateFile('views/'. $name . '/create.blade.php', $this->createViewFile(),'resources',resource_path().'/views/'. strtolower($name));
+        $pathEdit = $this->generateFile('views/'. $name . '/edit.blade.php', $this->editViewFile(),'resources',resource_path().'/views/'. strtolower($name));
         $this->replaceTextFileAgain($pathIndex, lcfirst($name));
         $this->replaceTextFile($pathIndex, $name);
 
@@ -108,8 +108,8 @@ class MakeCrud extends Command
         } else {
             $path = resource_path($path);
         }
-        if ($folder != null && !file_exists(strtolower($folder))) {
-            File::makeDirectory(strtolower($folder));
+        if ($folder != null && !file_exists($folder)) {
+            File::makeDirectory($folder);
         }
         $fh = fopen($path, 'w') or die("can't open file");
         $stringData = $file;
