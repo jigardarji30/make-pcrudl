@@ -1,6 +1,6 @@
 <?php
 
-namespace Jigardarji\LaraCrud\Console\Commands;
+namespace Jigardarji\MakePcrudl\Console\Commands;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;

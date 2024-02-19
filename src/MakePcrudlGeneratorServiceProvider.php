@@ -1,10 +1,10 @@
 <?php
 
-namespace Jigardarji\LaraCrud;
+namespace Jigardarji\MakePcrudl;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaraCrudGeneratorServiceProvider extends ServiceProvider
+class MakePcrudlGeneratorServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
@@ -13,7 +13,7 @@ class LaraCrudGeneratorServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->commands(\Jigardarji\LaraCrud\Console\Commands\MakeCrud::class);
+        $this->commands(\Jigardarji\MakePcrudl\Console\Commands\MakeCrud::class);
     }
 
     public function boot()

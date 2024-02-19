@@ -1,5 +1,5 @@
 {
-    "name": "jigardarji/lara-crud",
+    "name": "jigardarji/make-pcrudl",
     "description": "Laravel CRUD Operation Generator",
     "license": "MIT",
     "authors": [
@@ -10,14 +10,14 @@
     ],
     "autoload": {
         "psr-4": {
-            "Jigardarji\\LaraCrud\\": "src"
+            "Jigardarji\\MakePcrudl\\": "src"
         }
     },
     "require": {},
     "extra": {
         "laravel": {
             "providers": [
-                "Jigardarji\\LaraCrud\\LaraCrudGeneratorServiceProvider"
+                "Jigardarji\\MakePcrudl\\MakePcrudlGeneratorServiceProvider"
             ]
         }
     },
