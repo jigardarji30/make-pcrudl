@@ -46,32 +46,28 @@ class MakeCrud extends Command
 
     protected function getStubContent($path)
     {
-        if ($this->fs->exists(resource_path('crud-stubs/' .  $path))) {
-            return $this->fs->get(resource_path('crud-stubs/' .  $path));
-        } else {
-            // return $this->fs->get(base_path().'/crud_package/src/stubs/' . $path);
-            return $this->fs->get(__DIR__ . '/../../stubs/' . $path . '.stub');
-        }
+        $dirPath = str_replace('Console/Commands','stubs/',dirname(__FILE__));
+        return $this->fs->get(__DIR__ . '/../../stubs/' . $path . '.stub');
     }
 
     public function controllerFile()
     {
-        return $this->getStubContent("NameHereController.php.stub");
+        return $this->getStubContent("NameHereController.php");
     }
 
     public function indexViewFile()
     {
-        return $this->getStubContent("index.blade.php.stub");
+        return $this->getStubContent("index.blade.php");
     }
 
     public function createViewFile()
     {
-        return $this->getStubContent("create.blade.php.stub");
+        return $this->getStubContent("create.blade.php");
     }
 
     public function editViewFile()
     {
-        return $this->getStubContent("edit.blade.php.stub");
+        return $this->getStubContent("edit.blade.php");
     }
 
     public function controllerGenerate($name)
